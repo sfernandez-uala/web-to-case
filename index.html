@@ -6,76 +6,7 @@
     <title>Formulario Web to Case</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <style>
-        .gradient-background {
-            background: #4169E1;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-        }
-
-        .wave-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            background: #FF6B6B;
-            clip-path: path('M0,0 L100,0 L100,65% C75,72% 50,65% 25,70% L0,65% L0,0 Z');
-        }
-
-        .form-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .required-field::after {
-            content: "*";
-            color: #dc3545;
-            margin-left: 4px;
-        }
-
-        .form-control {
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: #4169E1;
-            box-shadow: 0 0 0 0.2rem rgba(65, 105, 225, 0.25);
-        }
-
-        .invalid-feedback {
-            font-size: 80%;
-            margin-top: 0.25rem;
-        }
-
-        .btn-submit {
-            background: #4169E1;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn-submit:hover {
-            background: #3558c8;
-            transform: translateY(-1px);
-        }
-
-        .form-label {
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="gradient-background"></div>
@@ -91,6 +22,8 @@
                         <input type="hidden" name="orgid" value="00D2g0000008buj">
                         <input type="hidden" name="Subject" value="Libro de quejas Web">
                         <input type="hidden" name="Origin" value="Web">
+                        <input type="hidden" name="debugEmail" value="sergio.fernandez@uala.com.ar">
+                        <input type="hidden" name="retURL" value="https://sfernandez-uala.github.io/web-to-case/thanks.html">
 
                         <div class="form-group">
                             <label class="form-label required-field" for="firstName">Nombre</label>
