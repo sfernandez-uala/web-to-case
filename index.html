@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Web to Case</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        .gradient-background {
+            background: #4169E1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .wave-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: #FF6B6B;
+            clip-path: path('M0,0 L100,0 L100,65% C75,72% 50,65% 25,70% L0,65% L0,0 Z');
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .required-field::after {
+            content: "*";
+            color: #dc3545;
+            margin-left: 4px;
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #4169E1;
+            box-shadow: 0 0 0 0.2rem rgba(65, 105, 225, 0.25);
+        }
+
+        .invalid-feedback {
+            font-size: 80%;
+            margin-top: 0.25rem;
+        }
+
+        .btn-submit {
+            background: #4169E1;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #3558c8;
+            transform: translateY(-1px);
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-background"></div>
+    <div class="wave-overlay"></div>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="form-container p-4 p-md-5">
+                    <h2 class="text-center mb-4">Formulario Web to Case</h2>
+                    
+                    <form id="webToCase" action="https://uala--ualauat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D2g0000008buj" method="POST">
+                        <input type="hidden" name="orgid" value="00D2g0000008buj">
+                        <input type="hidden" name="Subject" value="Libro de quejas Web">
+                        <input type="hidden" name="Origin" value="Web">
+
+                        <div class="form-group">
+                            <label class="form-label required-field" for="firstName">Nombre</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                            <div class="invalid-feedback">Por favor, ingrese su nombre</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label required-field" for="lastName">Apellido</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            <div class="invalid-feedback">Por favor, ingrese su apellido</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label required-field" for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" maxlength="80" required>
+                            <div class="invalid-feedback">Por favor, ingrese un email válido</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label required-field" for="description">Descripción</label>
+                            <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                            <div class="invalid-feedback">Por favor, ingrese una descripción</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label required-field" for="00N2g000000xStj">DNI</label>
+                            <input type="text" class="form-control" id="00N2g000000xStj" name="DocumentId__c" maxlength="12" required>
+                            <div class="invalid-feedback">Por favor, ingrese su DNI</div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="g-recaptcha mb-3" data-sitekey="6LeDb8gqAAAAACEom-2CcTtAhdmT9VnZCVvkOuzR"></div>
+                            <div class="invalid-feedback" id="recaptcha-error">Por favor, complete el reCAPTCHA</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit btn-block text-white">
+                            Enviar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
