@@ -71,9 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
         // Enviar el formulario
         form.submit();
-        setTimeout(() => {
-          location.href = "/web-to-case/thanks.html";
-        },1000)
       }
     })
   })
