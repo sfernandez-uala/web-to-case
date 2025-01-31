@@ -61,29 +61,19 @@ document.addEventListener("DOMContentLoaded", () => {
   
       if (isValid) {
         const formData = new FormData(form);
-        const firstName = document.getElementById("firstName").value;
-        const lastName = document.getElementById("lastName").value;
-        const dni = document.getElementById("dni").value;
-        const description = document.getElementById("description");
-    
+        const firstName = document.getElementById("firstName").value
+        const lastName = document.getElementById("lastName").value
+        const dni = document.getElementById("dni").value
+        const description = document.getElementById("description")
+  
         // Agregar nombre y apellido a la descripción
-        formData.set("description", `Nombre: ${firstName}\nApellido: ${lastName}\nDNI: ${dni}\n\n${description.value}`);
-    
-        fetch(form.action, {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => {
-            if (response.ok) {
-              window.location.href = "/thanks.html";
-            } else {
-              // Manejar error
-              console.error("Error en la solicitud:", response.statusText);
-            }
-          })
-          .catch((error) => {
-            console.error("Error en la solicitud:", error);
-          });
+        description.value = `Nombre: ${firstName}\nApellido: ${lastName}\DNI: ${dni}\n\n${description.value}`
+  
+        // Enviar el formulario
+        form.submit();
+        setTimeout(() => {
+          location.href = "/thanks.html";
+        },1000)
       }
     })
   })
