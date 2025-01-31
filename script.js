@@ -60,19 +60,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   
       if (isValid) {
-        const formData = new FormData(form);
         const firstName = document.getElementById("firstName").value
         const lastName = document.getElementById("lastName").value
         const dni = document.getElementById("dni").value
         const description = document.getElementById("description")
-  
+        const spinner = document.querySelector(".spinner-border");
+        spinner.classList.remove("d-none");
         // Agregar nombre y apellido a la descripción
         description.value = `Nombre: ${firstName}\nApellido: ${lastName}\DNI: ${dni}\n\n${description.value}`
   
         // Enviar el formulario
         form.submit();
         setTimeout(() => {
-          location.href = "/thanks.html";
+          location.href = "/web-to-case/thanks.html";
         },1000)
       }
     })
