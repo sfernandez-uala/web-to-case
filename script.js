@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const spinner = document.querySelector(".spinner-border");
         spinner.classList.remove("d-none");
         // Agregar nombre y apellido a la descripción
-        description.value = `Nombre: ${firstName}\nApellido: ${lastName}\DNI: ${dni}\n\n${description.value}`
+        description.value = `Nombre: ${firstName}\nApellido: ${lastName}\nDNI: ${dni}\n\n${description.value}`
   
         // Enviar el formulario
         form.submit();
