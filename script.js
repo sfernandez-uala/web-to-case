@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Obtener el token de reCAPTCHA v3 y enviar el formulario
       grecaptcha.ready(() => {
-        grecaptcha.execute('6LcF89oqAAAAAEYBp1wbHvf3nHsW8rrXa9mtXpw9', { action: 'submit' }).then((token) => {
+        grecaptcha.execute('6LeDb8gqAAAAACEom-2CcTtAhdmT9VnZCVvkOuzR', { action: 'submit' }).then((token) => {
           document.getElementById('g-recaptcha-response').value = token;
 
           // Enviar el formulario
