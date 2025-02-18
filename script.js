@@ -60,33 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // Agregar nombre y apellido a la descripción
       description.value = `Nombre: ${firstName}\nApellido: ${lastName}\nDNI: ${dni}\n\n${description.value}`;
 
-      // Crear FormData y enviar el formulario usando fetch
-      const formData = new FormData(form);
-      formData.set("description", description.value);
-
       // Obtener el token de reCAPTCHA v3 y enviar el formulario
       grecaptcha.ready(() => {
         grecaptcha.execute('6LcF89oqAAAAAEYBp1wbHvf3nHsW8rrXa9mtXpw9', { action: 'submit' }).then((token) => {
-          formData.set('g-recaptcha-response', token);
+          document.getElementById('g-recaptcha-response').value = token;
 
-          fetch(form.action, {
-            method: "POST",
-            body: formData,
-          })
-            .then((response) => {
-              if (response.ok) {
-                window.location.href = "/thanks.html";
-              } else {
-                console.error("Error en la solicitud:", response.statusText);
-              }
-            })
-            .catch((error) => {
-              console.error("Error en la solicitud:", error);
-            })
-            .finally(() => {
-              // Ocultar el spinner
-              spinner.classList.add("d-none");
-            });
+          // Enviar el formulario
+          form.submit();
         });
       });
     }
