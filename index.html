@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Web to Case</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcF89oqAAAAAEYBp1wbHvf3nHsW8rrXa9mtXpw9" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -57,7 +57,10 @@
                             <div class="invalid-feedback">Por favor, ingrese su DNI</div>
                         </div>
 
-                        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                        <div class="form-group">
+                            <div class="g-recaptcha mb-3" data-sitekey="6LeDb8gqAAAAACEom-2CcTtAhdmT9VnZCVvkOuzR"></div>
+                            <div class="invalid-feedback" id="recaptcha-error">Por favor, complete el reCAPTCHA</div>
+                        </div>
 
                         <button type="submit" class="btn btn-submit btn-block text-white">
                             Enviar
